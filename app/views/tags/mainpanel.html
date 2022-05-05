@@ -1,0 +1,54 @@
+<segment class="ui rasized segmemnt">
+  <h1 class="ui header">
+    Weather stations
+  </h1>
+
+  #{list items:_stations, as:'station'}
+    <section class="ui segment">
+      <h2 class="ui header">
+        ${station.name}
+      </h2>
+      <div class="ui equal width stackable grid">
+        <div class="five column equal height row">
+          <div class="column">
+            <div class="ui inverted segment" style="height:100%;">
+              <br>
+              <h3>${station.name}</h3>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui inverted segment" style="height:100%;">
+              <br>
+              <h3>Weather</h3>
+              <p>${station.getLastReading().code}</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui inverted segment" style="height:100%;">
+              <br>
+              <h3>Temp</h3>
+              <p>${station.getLastReading().temperature} &#176;C</p>
+              <p>${station.getLastReading().getTemperatureFahrenheit()} &#176;F</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui inverted segment" style="height:100%;">
+              <br>
+              <h3>Pressure</h3>
+              <p>${station.getLastReading().pressure} hPa</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui inverted segment" style="height:100%;">
+              <br>
+              <h3>Wind</h3>
+              <p>${station.getLastReading().windSpeed}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      #{listreadings station:station /}
+    </section>
+  #{/list}
+
+</segment>
