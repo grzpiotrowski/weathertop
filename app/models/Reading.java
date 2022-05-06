@@ -22,4 +22,26 @@ public class Reading extends Model
         this.windSpeed = windSpeed;
     }
 
+    /**
+     * Returns temperature value in Fahrenheit degrees.
+     * @return Temperature value in Fahrenheit degrees.
+     */
+    public double getTemperatureFahrenheit()
+    {
+        return (temperature * 9/5 + 32);
+    }
+
+    /**
+     * Returns Reading's weather as a String
+     * @return Weather String
+     */
+    public String getWeatherName()
+    {
+        return Conversions.weatherCodeToString(code);
+    }
+
+    public int getWindBeaufort()
+    {
+        return Conversions.kmhToBeaufort(windSpeed);
+    }
 }

@@ -20,7 +20,7 @@
             <div class="ui inverted segment" style="height:100%;">
               <br>
               <h3>Weather</h3>
-              <p>${station.getLastReading().code}</p>
+              <p>${station.getLastReading().getWeatherName()}</p>
             </div>
           </div>
           <div class="column">
@@ -42,7 +42,7 @@
             <div class="ui inverted segment" style="height:100%;">
               <br>
               <h3>Wind</h3>
-              <p>${station.getLastReading().windSpeed}</p>
+              <p>${station.getLastReading().getWindBeaufort()} bft</p>
             </div>
           </div>
         </div>
