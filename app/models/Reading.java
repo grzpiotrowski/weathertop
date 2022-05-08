@@ -13,13 +13,15 @@ public class Reading extends Model
     public double temperature;
     public int pressure;
     public double windSpeed;
+    public double windDirection;
 
-    public Reading(int code, double temperature, int pressure, double windSpeed)
+    public Reading(int code, double temperature, int pressure, double windSpeed, double windDirection)
     {
         this.code = code;
         this.temperature = temperature;
         this.pressure = pressure;
         this.windSpeed = windSpeed;
+        this.windDirection = windDirection;
     }
 
     /**
@@ -44,4 +46,8 @@ public class Reading extends Model
     {
         return Conversions.kmhToBeaufort(windSpeed);
     }
+
+    public String getWindCompassDir() { return Conversions.azimuthToCompassDir(windDirection); }
+
+    public double getWindChill() { return Conversions.calculateWindChill(temperature, windSpeed); }
 }

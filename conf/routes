@@ -6,6 +6,7 @@
 GET     /                                       Start.index
 GET     /dashboard                              Dashboard.index
 GET     /about                                  About.index
+POST    /stations/{id}/addreading               StationCtrl.addReading
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

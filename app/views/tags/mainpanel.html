@@ -43,11 +43,14 @@
               <br>
               <h3>Wind</h3>
               <p>${station.getLastReading().getWindBeaufort()} bft</p>
+              <p>${station.getLastReading().getWindCompassDir()}</p>
+              <p>Feels like ${station.getLastReading().getWindChill()}</p>
             </div>
           </div>
         </div>
       </div>
       #{listreadings station:station /}
+      #{addreading station:station /}
     </section>
   #{/list}
 
