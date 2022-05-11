@@ -3,6 +3,11 @@ package utils;
 import java.util.HashMap;
 import java.lang.Math;
 
+/**
+ * The Conversions class contains static methods for converting data between different units
+ * @author: Grzegorz Piotrowski
+ * @version: 1.0 (11.May.2020)
+ */
 public class Conversions {
 
     /**

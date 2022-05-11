@@ -1,57 +1,53 @@
-<segment class="ui rasized segmemnt">
-  <h1 class="ui header">
-    Weather stations
-  </h1>
-
-  #{list items:_stations, as:'station'}
-    <section class="ui segment">
-      <h2 class="ui header">
-        ${station.name}
-      </h2>
-      <div class="ui equal width stackable grid">
-        <div class="five column equal height row">
-          <div class="column">
-            <div class="ui inverted segment" style="height:100%;">
-              <br>
-              <h3>${station.name}</h3>
-            </div>
-          </div>
-          <div class="column">
-            <div class="ui inverted segment" style="height:100%;">
-              <br>
-              <h3>Weather</h3>
-              <p>${station.getLastReading().getWeatherName()}</p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="ui inverted segment" style="height:100%;">
-              <br>
-              <h3>Temp</h3>
-              <p>${station.getLastReading().temperature} &#176;C</p>
-              <p>${station.getLastReading().getTemperatureFahrenheit()} &#176;F</p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="ui inverted segment" style="height:100%;">
-              <br>
-              <h3>Pressure</h3>
-              <p>${station.getLastReading().pressure} hPa</p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="ui inverted segment" style="height:100%;">
-              <br>
-              <h3>Wind</h3>
-              <p>${station.getLastReading().getWindBeaufort()} bft</p>
-              <p>${station.getLastReading().getWindCompassDir()}</p>
-              <p>Feels like ${station.getLastReading().getWindChill()}</p>
-            </div>
+<section class="ui segment">
+  <div class="ui equal width stackable grid">
+    <div class="five column equal height row">
+      <div class="column">
+        <div class="ui inverted segment" style="height:100%;">
+          <br>
+          <h3>${_station.name}</h3>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui inverted segment" style="height:100%;">
+          <br>
+          <h3>Weather</h3>
+          <div class="ui list">
+            <div class="item">${_station.getLastReading()?.getWeatherName()}</div>
           </div>
         </div>
       </div>
-      #{listreadings station:station /}
-      #{addreading station:station /}
-    </section>
-  #{/list}
-
-</segment>
+      <div class="column">
+        <div class="ui inverted segment" style="height:100%;">
+          <br>
+          <h3>Temp</h3>
+          <div class="ui list">
+            <div class="item">${_station.getLastReading()?.temperature} &#176;C</div>
+            <div class="item">${_station.getLastReading()?.getTemperatureFahrenheit()} &#176;F</div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui inverted segment" style="height:100%;">
+          <br>
+          <h3>Pressure</h3>
+          <div class="ui list">
+            <div class="item">${_station.getLastReading()?.pressure} hPa</div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui inverted segment" style="height:100%;">
+          <br>
+          <h3>Wind</h3>
+          <div class="ui list">
+            <div class="item">${_station.getLastReading()?.getWindBeaufort()} bft</div>
+            <div class="item">${_station.getLastReading()?.getWindCompassDir()}</div>
+            <div class="item">Feels like ${_station.getLastReading()?.getWindChill()}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  #{listreadings station:_station /}
+  #{addreading station:_station /}
+</section>

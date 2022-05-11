@@ -28,6 +28,18 @@ public class Station extends Model
      */
     public Reading getLastReading()
     {
-        return this.readings.get(readings.size() - 1);
+        Reading lastReading = null;
+        if (readings.size() > 0) {
+            lastReading = readings.get(readings.size() - 1);
+        }
+        return lastReading;
+
     }
+
+    public boolean isEmpty()
+    {
+        if (readings.size() > 0) { return false; }
+        else return true;
+    }
+
 }
