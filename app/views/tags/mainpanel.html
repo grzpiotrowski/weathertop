@@ -2,14 +2,12 @@
   <div class="ui equal width stackable grid">
     <div class="five column equal height row">
       <div class="column">
-        <div class="ui inverted segment" style="height:100%;">
-          <br>
+        <div class="ui inverted segment" style="height:100%; padding-top: 2em;">
           <h3>${_station.name}</h3>
         </div>
       </div>
       <div class="column">
-        <div class="ui inverted segment" style="height:100%;">
-          <br>
+        <div class="ui inverted segment" style="height:100%; padding-top: 2em;">
           <h3>Weather</h3>
           <div class="ui list">
             <div class="item">${_station.getLastReading()?.getWeatherName()}</div>
@@ -17,8 +15,7 @@
         </div>
       </div>
       <div class="column">
-        <div class="ui inverted segment" style="height:100%;">
-          <br>
+        <div class="ui inverted segment" style="height:100%; padding-top: 2em;">
           <h3>Temp</h3>
           <div class="ui list">
             <div class="item">${_station.getLastReading()?.temperature} &#176;C</div>
@@ -27,8 +24,7 @@
         </div>
       </div>
       <div class="column">
-        <div class="ui inverted segment" style="height:100%;">
-          <br>
+        <div class="ui inverted segment" style="height:100%; padding-top: 2em;">
           <h3>Pressure</h3>
           <div class="ui list">
             <div class="item">${_station.getLastReading()?.pressure} hPa</div>
@@ -36,13 +32,12 @@
         </div>
       </div>
       <div class="column">
-        <div class="ui inverted segment" style="height:100%;">
-          <br>
+        <div class="ui inverted segment" style="height:100%; padding-top: 2em;">
           <h3>Wind</h3>
           <div class="ui list">
             <div class="item">${_station.getLastReading()?.getWindBeaufort()} bft</div>
             <div class="item">${_station.getLastReading()?.getWindCompassDir()}</div>
-            <div class="item">Feels like ${_station.getLastReading()?.getWindChill()}</div>
+            <div class="item">Feels like ${_station.getLastReading()?.getWindChill()?.round(1)} &#176;C</div>
           </div>
         </div>
       </div>
