@@ -34,3 +34,12 @@ Station(s2):
   readings:
     - r3
     - r4
+
+Member(m1):
+  email: homer@simpson.com
+  password: secret
+  firstName: Homer
+  lastName : Simpson
+  stations :
+    - s1
+    - s2
