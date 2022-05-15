@@ -4,6 +4,10 @@
       <div class="column">
         <div class="ui inverted segment" style="height:100%; padding-top: 2em;">
           <h3>${_station.name}</h3>
+          <div class="ui list">
+            <div class="item">Lat: ${_station.latitude.round(3)}</div>
+            <div class="item">Lng: ${_station.longitude.round(3)}</div>
+          </div>
         </div>
       </div>
       <div class="column">

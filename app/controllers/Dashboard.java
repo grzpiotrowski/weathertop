@@ -21,11 +21,11 @@ public class Dashboard extends Controller
    * Adds a new station to the database.
    * @param name Station's name
    */
-  public static void addStation(String name)
+  public static void addStation(String name, double latitude, double longitude)
   {
     Logger.info("Adding a new station: " + name);
     Member member = Accounts.getLoggedInMember();
-    Station station = new Station(name);
+    Station station = new Station(name, latitude, longitude);
     member.stations.add(station);
     station.save();
     redirect("/dashboard");
