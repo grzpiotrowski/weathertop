@@ -2,7 +2,7 @@
   <div class="five fields">
     <div class="field">
       <label>Code</label>
-      <input placeholder="Code" type="number" name="code" step="100">
+      <input placeholder="Code" type="number" name="code" min="100" max="800" step="100">
     </div>
     <div class="field">
       <label>Temperature [&#176;C]</label>
@@ -10,15 +10,15 @@
     </div>
     <div class="field">
       <label>Pressure [hPa]</label>
-      <input placeholder="0.00" type="number" name="pressure">
+      <input placeholder="0.00" type="number" name="pressure" min="0">
     </div>
     <div class="field">
       <label>Wind Speed [km/h]</label>
-      <input placeholder="000" type="number" name="windSpeed">
+      <input placeholder="000" type="number" name="windSpeed" min="0">
     </div>
     <div class="field">
       <label>Wind Direction [&#176;]</label>
-      <input placeholder="000" type="number" name="windDirection">
+      <input placeholder="000" type="number" name="windDirection" min="0" max="360">
     </div>
   </div>
   <button class="ui blue submit button">Submit Report</button>

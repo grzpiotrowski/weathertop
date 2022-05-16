@@ -20,6 +20,8 @@ public class Dashboard extends Controller
   /**
    * Adds a new station to the database.
    * @param name Station's name
+   * @param latitude Station's latitude coordinate in decimal degrees
+   * @param longitude Station's longitude coordinate in decimal degrees
    */
   public static void addStation(String name, double latitude, double longitude)
   {
@@ -30,4 +32,20 @@ public class Dashboard extends Controller
     station.save();
     redirect("/dashboard");
   }
+
+  /**
+   * Deletes a station from the database
+   * @param id Station's id
+   */
+  public static void deleteStation (Long id)
+  {
+    Logger.info("Deleting a Station");
+    Member member = Accounts.getLoggedInMember();
+    Station station = Station.findById(id);
+    member.stations.remove(station);
+    member.save();
+    station.delete();
+    redirect ("/dashboard");
+  }
+
 }

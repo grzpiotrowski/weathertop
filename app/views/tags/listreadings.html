@@ -2,10 +2,11 @@
   <thead>
     <tr>
       <th>Code</th>
-      <th>Temp</th>
-      <th>Pressure</th>
-      <th>Wind Speed</th>
-      <th>Wind Direction</th>
+      <th>Temp [&#176;C]</th>
+      <th>Pressure [hPa]</th>
+      <th>Wind Speed [km/h]</th>
+      <th>Wind Direction [&#176;]</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -26,6 +27,9 @@
       </td>
       <td>
         ${reading.windDirection}
+      </td>
+      <td>
+        <a href="/stations/${_station.id}/deletereading/${reading.id}" class="ui tiny red button">Delete Reading</a>
       </td>
     </tr>
     #{/list}
