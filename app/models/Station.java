@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
+import utils.WeatherAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,4 +38,27 @@ public class Station extends Model {
     return lastReading;
   }
 
+  public Reading getMinTemperatureReading() {
+    return WeatherAnalytics.getMinTemperatureReading(readings);
+  }
+
+  public Reading getMaxTemperatureReading() {
+    return WeatherAnalytics.getMaxTemperatureReading(readings);
+  }
+
+  public Reading getMinPressureReading() {
+    return WeatherAnalytics.getMinPressureReading(readings);
+  }
+
+  public Reading getMaxPressureReading() {
+    return WeatherAnalytics.getMaxPressureReading(readings);
+  }
+
+  public Reading getMinWindReading() {
+    return WeatherAnalytics.getMinWindReading(readings);
+  }
+
+  public Reading getMaxWindReading() {
+    return WeatherAnalytics.getMaxWindReading(readings);
+  }
 }

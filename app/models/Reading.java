@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import play.db.jpa.Model;
 
 import utils.Conversions;
+import utils.WeatherAnalytics;
 
 @Entity
 public class Reading extends Model {
@@ -40,6 +41,8 @@ public class Reading extends Model {
     return Conversions.weatherCodeToString(code);
   }
 
+  public String getWeatherIcon() { return Conversions.weatherCodeIcon(code); }
+
   public int getWindBeaufort() {
     return Conversions.kmhToBeaufort(windSpeed);
   }
@@ -49,6 +52,6 @@ public class Reading extends Model {
   }
 
   public double getWindChill() {
-    return Conversions.calculateWindChill(temperature, windSpeed);
+    return WeatherAnalytics.calculateWindChill(temperature, windSpeed);
   }
 }

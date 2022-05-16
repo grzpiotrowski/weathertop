@@ -7,7 +7,7 @@ import java.lang.Math;
  * The Conversions class contains static methods for converting data between different units
  *
  * @author: Grzegorz Piotrowski
- * @version: 1.0 (11.May.2020)
+ * @version: 1.0 (11.May.2022)
  */
 public class Conversions {
 
@@ -31,6 +31,27 @@ public class Conversions {
     String weatherName = weatherCodes.get(code);
 
     return weatherName;
+  }
+
+  /**
+   * Returns fomantic-ui icon name for a given weather code
+   * @param code Weather code
+   * @return fomantic-ui icon name
+   */
+  public static String weatherCodeIcon(int code) {
+    HashMap<Integer, String> weatherIconNames = new HashMap<Integer, String>();
+    weatherIconNames.put(100, "sun");
+    weatherIconNames.put(200, "cloud sun");
+    weatherIconNames.put(300, "cloud");
+    weatherIconNames.put(400, "cloud sun rain");
+    weatherIconNames.put(500, "cloud showers heavy");
+    weatherIconNames.put(600, "cloud rain");
+    weatherIconNames.put(700, "snowflake");
+    weatherIconNames.put(800, "bolt");
+
+    String weatherIconName = weatherIconNames.get(code);
+
+    return weatherIconName;
   }
 
   /**
@@ -112,17 +133,6 @@ public class Conversions {
     } else {
       return "Unknown";
     }
-  }
-
-  /**
-   * Returns wind chill value for a given temperature and wind conditions
-   *
-   * @param temperature Temperature in degrees Celsius
-   * @param windSpeed   Wind velocity in kilometers per hour
-   * @return Wind chill value
-   */
-  public static double calculateWindChill(double temperature, double windSpeed) {
-    return (13.12 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temperature * Math.pow(windSpeed, 0.16));
   }
 
 }
