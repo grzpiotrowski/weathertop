@@ -1,0 +1,89 @@
+<div class="ui equal width stackable grid">
+  <div class="five column equal height row">
+    <div class="column">
+      <div class="ui inverted segment" style="height:100%;">
+        <div class="ui two column stackable grid">
+          <div class="column" style="padding-top: 2em;">
+            <h3>${_station.name}</h3>
+            <div class="ui list">
+              <div class="item">Lat: ${_station.latitude.round(3)}</div>
+              <div class="item">Lng: ${_station.longitude.round(3)}</div>
+            </div>
+          </div>
+          <div class="large screen only column">
+            <i class="purple huge map marker icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui inverted segment" style="height:100%;">
+        <div class="ui two column stackable grid">
+          <div class="column" style="padding-top: 2em;">
+            <h3>Weather</h3>
+            <div class="ui list">
+              <div class="item">${_station.getLastReading()?.getWeatherName()}</div>
+            </div>
+          </div>
+          <div class="large screen only column">
+            <i class="red huge ${_station.getLastReading()?.getWeatherIcon()} icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui inverted segment" style="height:100%;">
+        <div class="ui two column stackable grid">
+          <div class="column" style="padding-top: 2em;">
+            <h3>Temp</h3>
+            <div class="ui list">
+              <div class="item">${_station.getLastReading()?.temperature} &#176;C</div>
+              <div class="item">${_station.getLastReading()?.getTemperatureFahrenheit()} &#176;F</div>
+              <div class="item">Max: ${_station.getMaxTemperatureReading()?.temperature} &#176;C</div>
+              <div class="item">Min: ${_station.getMinTemperatureReading()?.temperature} &#176;C</div>
+            </div>
+          </div>
+          <div class="large screen only column">
+            <i class="blue huge temperature low icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui inverted segment" style="height:100%;">
+        <div class="ui two column stackable grid">
+          <div class="column" style="padding-top: 2em;">
+            <h3>Pressure</h3>
+            <div class="ui list">
+              <div class="item">${_station.getLastReading()?.pressure} hPa</div>
+              <div class="item">Max: ${_station.getMaxPressureReading()?.pressure} hPa</div>
+              <div class="item">Min: ${_station.getMinPressureReading()?.pressure} hPa</div>
+            </div>
+          </div>
+          <div class="large screen only column">
+            <i class="orange huge weight icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui inverted segment" style="height:100%;">
+        <div class="ui two column stackable grid">
+          <div class="ten wide column" style="padding-top: 2em;">
+            <h3>Wind</h3>
+            <div class="ui list">
+              <div class="item">${_station.getLastReading()?.getWindBeaufort()} bft</div>
+              <div class="item">${_station.getLastReading()?.getWindCompassDir()}</div>
+              <div class="item">Feels like ${_station.getLastReading()?.getWindChill()?.round(1)} &#176;C</div>
+              <div class="item">Max: ${_station.getMaxWindReading()?.windSpeed} km/h</div>
+              <div class="item">Min: ${_station.getMinWindReading()?.windSpeed} km/h</div>
+            </div>
+          </div>
+          <div class="six wide large screen only column" style="padding-left: 0em; padding-right: 0em;">
+            <i class="green huge wind icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
