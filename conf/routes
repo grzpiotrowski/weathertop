@@ -9,6 +9,8 @@ GET     /login                                      Accounts.login
 POST    /register                                   Accounts.register
 POST    /authenticate                               Accounts.authenticate
 GET     /logout                                     Accounts.logout
+GET     /accountsettings                            Accounts.settings
+POST    /accounts/updatememberdetails               Accounts.changeMemberDetails
 GET     /dashboard                                  Dashboard.index
 GET     /about                                      About.index
 GET     /stations/{id}                              StationCtrl.index

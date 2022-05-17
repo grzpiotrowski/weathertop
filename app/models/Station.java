@@ -69,9 +69,7 @@ public class Station extends Model {
     return WeatherAnalytics.getMinPressureReading(readings);
   }
 
-  public Reading getMaxPressureReading() {
-    return WeatherAnalytics.getMaxPressureReading(readings);
-  }
+  public Reading getMaxPressureReading() { return WeatherAnalytics.getMaxPressureReading(readings); }
 
   public Reading getMinWindReading() {
     return WeatherAnalytics.getMinWindReading(readings);

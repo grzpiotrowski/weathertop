@@ -5,6 +5,7 @@ import play.db.jpa.Model;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ public class Member extends Model
   public String password;
 
   @OneToMany(cascade = CascadeType.ALL)
+  @OrderBy("name ASC")
   public List<Station> stations = new ArrayList<Station>();
 
   public Member(String firstName, String lastName, String email, String password)
