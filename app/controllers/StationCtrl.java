@@ -6,6 +6,8 @@ import play.Logger;
 import play.Play;
 import play.mvc.Controller;
 
+import java.util.Date;
+
 public class StationCtrl extends Controller {
   public static void index(Long id) {
     Station station = Station.findById(id);
@@ -24,7 +26,8 @@ public class StationCtrl extends Controller {
    * @param windDirection Wind direction in degrees
    */
   public static void addReading(Long id, int code, double temperature, int pressure, double windSpeed, double windDirection) {
-    Reading song = new Reading(code, temperature, pressure, windSpeed, windDirection);
+    Date dateTime = new Date();
+    Reading song = new Reading(code, temperature, pressure, windSpeed, windDirection, dateTime);
     Station station = Station.findById(id);
     station.readings.add(song);
     station.save();

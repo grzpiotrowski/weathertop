@@ -1,6 +1,7 @@
 <table class="ui striped table">
   <thead>
     <tr>
+      <th>Date/Time</th>
       <th>Code</th>
       <th>Temp [&#176;C]</th>
       <th>Pressure [hPa]</th>
@@ -13,6 +14,9 @@
   <tbody>
     #{list items:_station.readings, as:'reading'}
     <tr>
+      <td>
+        ${reading.date}
+      </td>
       <td>
         ${reading.code}
       </td>

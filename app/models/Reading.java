@@ -7,6 +7,9 @@ import play.db.jpa.Model;
 import utils.Conversions;
 import utils.WeatherAnalytics;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 @Entity
 public class Reading extends Model {
   public int code;
@@ -14,18 +17,20 @@ public class Reading extends Model {
   public int pressure;
   public double windSpeed;
   public double windDirection;
+  public Date date;
 
-  public Reading(int code, double temperature, int pressure, double windSpeed, double windDirection) {
+  public Reading(int code, double temperature, int pressure, double windSpeed, double windDirection, Date dateTime) {
     this.code = code;
     this.temperature = temperature;
     this.pressure = pressure;
     this.windSpeed = windSpeed;
     this.windDirection = windDirection;
+    this.date = dateTime;
   }
 
   /**
    * Returns temperature value in Fahrenheit degrees.
-   *
+
    * @return Temperature value in Fahrenheit degrees.
    */
   public double getTemperatureFahrenheit() {
