@@ -43,8 +43,20 @@
               <div class="item">Min: ${_station.getMinTemperatureReading()?.temperature} &#176;C</div>
             </div>
           </div>
-          <div class="large screen only column">
-            <i class="blue huge temperature low icon"></i>
+          <div class="column">
+            <div class="ui grid">
+              <div class="row">
+                <i class="blue huge temperature low icon"></i>
+              </div>
+              <div class="row">
+                #{if _station.getTemperatureTrend() == 1}
+                  <i class="big blue long arrow alternate up icon"></i>
+                #{/if}
+                #{elseif _station.getTemperatureTrend() == -1}
+                  <i class="big blue long arrow alternate down icon"></i>
+                #{/elseif}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -61,7 +73,19 @@
             </div>
           </div>
           <div class="large screen only column">
-            <i class="orange huge weight icon"></i>
+            <div class="ui grid">
+              <div class="row">
+                <i class="orange huge weight icon"></i>
+              </div>
+              <div class="row">
+                #{if _station.getPressureTrend() == 1}
+                <i class="big orange long arrow alternate up icon"></i>
+                #{/if}
+                #{elseif _station.getPressureTrend() == -1}
+                <i class="big orange long arrow alternate down icon"></i>
+                #{/elseif}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -80,7 +104,19 @@
             </div>
           </div>
           <div class="six wide large screen only column" style="padding-left: 0em; padding-right: 0em;">
-            <i class="green huge wind icon"></i>
+            <div class="ui grid">
+              <div class="row">
+                <i class="green huge wind icon"></i>
+              </div>
+              <div class="row">
+                #{if _station.getWindSpeedTrend() == 1}
+                <i class="big green long arrow alternate up icon"></i>
+                #{/if}
+                #{elseif _station.getWindSpeedTrend() == -1}
+                <i class="big green long arrow alternate down icon"></i>
+                #{/elseif}
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -131,4 +131,67 @@ public class WeatherAnalytics {
     return minPressureReading;
   }
 
+  /**
+   * Returns an int representing the temperature change trend on last 3 readings.
+   * @param readings List of Readings
+   * @return integer representing the trend: -1 downwards trend, 1 upwards trend, 0 no significant change
+   */
+  public static int getTemperatureTrend(List<Reading> readings) {
+    int trend = 0;
+    if (readings.size() > 2) {
+      if ((readings.get(readings.size() - 1).temperature - readings.get(readings.size() - 2).temperature) > 0
+      && (readings.get(readings.size() - 2).temperature - readings.get(readings.size() - 3).temperature) > 0) {
+        trend = 1;
+      } else if ((readings.get(readings.size() - 1).temperature - readings.get(readings.size() - 2).temperature) < 0
+          && (readings.get(readings.size() - 2).temperature - readings.get(readings.size() - 3).temperature) < 0) {
+        trend = -1;
+      } else {
+        trend = 0;
+      }
+    }
+    return trend;
+  }
+
+  /**
+   * Returns an int representing the pressure change trend on last 3 readings.
+   * @param readings List of Readings
+   * @return integer representing the trend: -1 downwards trend, 1 upwards trend, 0 no significant change
+   */
+  public static int getPressureTrend(List<Reading> readings) {
+    int trend = 0;
+    if (readings.size() > 2) {
+      if ((readings.get(readings.size() - 1).pressure - readings.get(readings.size() - 2).pressure) > 0
+          && (readings.get(readings.size() - 2).pressure - readings.get(readings.size() - 3).pressure) > 0) {
+        trend = 1;
+      } else if ((readings.get(readings.size() - 1).pressure - readings.get(readings.size() - 2).pressure) < 0
+          && (readings.get(readings.size() - 2).pressure - readings.get(readings.size() - 3).pressure) < 0) {
+        trend = -1;
+      } else {
+        trend = 0;
+      }
+    }
+    return trend;
+  }
+
+  /**
+   * Returns an int representing the wind speed change trend on last 3 readings.
+   * @param readings List of Readings
+   * @return integer representing the trend: -1 downwards trend, 1 upwards trend, 0 no significant change
+   */
+  public static int getWindSpeedTrend(List<Reading> readings) {
+    int trend = 0;
+    if (readings.size() > 2) {
+      if ((readings.get(readings.size() - 1).windSpeed - readings.get(readings.size() - 2).windSpeed) > 0
+          && (readings.get(readings.size() - 2).windSpeed - readings.get(readings.size() - 3).windSpeed) > 0) {
+        trend = 1;
+      } else if ((readings.get(readings.size() - 1).windSpeed - readings.get(readings.size() - 2).windSpeed) < 0
+          && (readings.get(readings.size() - 2).windSpeed - readings.get(readings.size() - 3).windSpeed) < 0) {
+        trend = -1;
+      } else {
+        trend = 0;
+      }
+    }
+    return trend;
+  }
+
 }

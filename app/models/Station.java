@@ -80,4 +80,10 @@ public class Station extends Model {
   public Reading getMaxWindReading() {
     return WeatherAnalytics.getMaxWindReading(readings);
   }
+
+  public int getTemperatureTrend() { return WeatherAnalytics.getTemperatureTrend(readings); }
+
+  public int getPressureTrend() { return WeatherAnalytics.getPressureTrend(readings); }
+
+  public int getWindSpeedTrend() { return WeatherAnalytics.getWindSpeedTrend(readings); }
 }
