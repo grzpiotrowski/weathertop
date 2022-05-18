@@ -34,7 +34,7 @@ public class Accounts extends Controller
     if (email.equals("")) {
       errormessages.add("Email is required.");
     }
-    if (lastName.equals("")) {
+    if (password.equals("")) {
       errormessages.add("Password is required.");
     }
     if (firstName.equals("")) {
@@ -50,7 +50,7 @@ public class Accounts extends Controller
       member.save();
       redirect("/");
     } else {
-      render("signup.html", errormessages);
+      render("signup.html", firstName, lastName, email, errormessages);
     }
   }
 
