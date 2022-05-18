@@ -40,4 +40,12 @@ public class Member extends Model
     return this.password.equals(password);
   }
 
+  public static boolean isEmailExisting(String email) {
+    if (find("email", email).first() != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

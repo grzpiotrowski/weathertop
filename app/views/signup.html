@@ -25,7 +25,23 @@
         <input type="password" name="password">
       </div>
       <button class="ui blue submit button">Submit</button>
+      #{if !errormessages?.isEmpty() && errormessages != null}
+        <div class="ui negative message">
+          <div class="header">
+            Sorry! Registration failed. Please try again.
+          </div>
+          <ul class="list">
+            #{list items:errormessages, as:'errormessage'}
+              <li>${errormessage}</li>
+            #{/list}
+          </ul>
+        </div>
+      #{/if}
     </form>
+    <div class="ui bottom attached warning message">
+      <i class="icon help"></i>
+      Already signed up? <a href="/login">Login here</a> instead.
+    </div>
   </div>
   <div class="column">
     <img class="ui image" src="/public/images/signup.png">

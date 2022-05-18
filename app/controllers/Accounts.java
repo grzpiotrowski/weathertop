@@ -4,12 +4,12 @@ import models.Member;
 import play.Logger;
 import play.mvc.Controller;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class Accounts extends Controller
 {
-  public static void signup()
-  {
-    render("signup.html");
-  }
+  public static void signup() { render("signup.html"); }
 
   public static void login()
   {
@@ -26,10 +26,32 @@ public class Accounts extends Controller
 
   public static void register(String firstName, String lastName, String email, String password)
   {
-    Logger.info("Registering new user: " + email);
-    Member member = new Member(firstName, lastName, email, password);
-    member.save();
-    redirect("/");
+    HashSet<String> errormessages = new HashSet<>();
+    if (Member.isEmailExisting(email)) {
+      Logger.info("Email already taken: " + email);
+      errormessages.add("Email already taken.");
+    }
+    if (email.equals("")) {
+      errormessages.add("Email is required.");
+    }
+    if (lastName.equals("")) {
+      errormessages.add("Password is required.");
+    }
+    if (firstName.equals("")) {
+      errormessages.add("First Name is required.");
+    }
+    if (lastName.equals("")) {
+      errormessages.add("Last Name is required.");
+    }
+
+    if (errormessages.isEmpty()) {
+      Logger.info("Registering new user: " + email);
+      Member member = new Member(firstName, lastName, email, password);
+      member.save();
+      redirect("/");
+    } else {
+      render("signup.html", errormessages);
+    }
   }
 
   public static void authenticate(String email, String password) {
