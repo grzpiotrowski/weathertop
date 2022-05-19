@@ -30,7 +30,6 @@ public class Reading extends Model {
 
   /**
    * Returns temperature value in Fahrenheit degrees.
-
    * @return Temperature value in Fahrenheit degrees.
    */
   public double getTemperatureFahrenheit() {
@@ -39,7 +38,6 @@ public class Reading extends Model {
 
   /**
    * Returns Reading's weather as a String
-   *
    * @return Weather String
    */
   public String getWeatherName() {

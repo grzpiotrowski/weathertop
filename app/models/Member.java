@@ -40,12 +40,31 @@ public class Member extends Model
     return this.password.equals(password);
   }
 
+  /**
+   * Checks if Member with specified email address exists
+   * @param email Email address
+   * @return true: Member exists, false: Member does not exist
+   */
   public static boolean isEmailExisting(String email) {
     if (find("email", email).first() != null) {
       return true;
     } else {
       return false;
     }
+  }
+
+  /**
+   * Checks if Station's name has already been used
+   * @param name Station's name
+   * @return true: station exists, false: station does not exist
+   */
+  public boolean hasStation(String name) {
+    for (Station station:stations) {
+      if (station.name.equals(name)) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }

@@ -27,9 +27,9 @@ public class StationCtrl extends Controller {
    */
   public static void addReading(Long id, int code, double temperature, int pressure, double windSpeed, double windDirection) {
     Date dateTime = new Date();
-    Reading song = new Reading(code, temperature, pressure, windSpeed, windDirection, dateTime);
+    Reading reading = new Reading(code, temperature, pressure, windSpeed, windDirection, dateTime);
     Station station = Station.findById(id);
-    station.readings.add(song);
+    station.readings.add(reading);
     station.save();
 
     redirect("/stations/" + id);
