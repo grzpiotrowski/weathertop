@@ -13,9 +13,10 @@ public class Dashboard extends Controller
   public static void index() {
     Logger.info("Rendering Dashboard");
     Member member = Accounts.getLoggedInMember();
+    String memberFirstName = member.firstName;
     List<Station> stations = member.stations;
 
-    render ("dashboard.html", stations);
+    render ("dashboard.html", stations, memberFirstName);
   }
 
   /**

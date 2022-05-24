@@ -3,8 +3,8 @@
 #{welcomemenu id:"login"/}
 
 <div class="ui two column middle aligned grid basic segment">
-  <div class="column">
-    <form class="ui stacked segment form" action="/authenticate" method="POST">
+  <div class="sixteen wide column eight wide computer column">
+    <form class="ui stacked rounded segment form" action="/authenticate" method="POST" style="border-radius: 20px;">
       <h3 class="ui header">Log-in</h3>
       <div class="field">
         <label>Email</label> <input placeholder="Email" name="email">
@@ -27,7 +27,7 @@
       #{/if}
     </form>
   </div>
-  <div class="column">
-    <img class="ui image" src="/public/images/login.png">
+  <div class="eight wide computer only column">
+    <img class="ui huge circular image" src="/public/images/login.jpg">
   </div>
 </div>

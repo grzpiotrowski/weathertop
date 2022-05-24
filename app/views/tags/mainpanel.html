@@ -1,5 +1,7 @@
 <section class="ui segment">
   #{stationsummary station:_station /}
-  #{listreadings station:_station /}
+  #{if _station.readings.size() > 0}
+    #{listreadings station:_station /}
+  #{/if}
   #{addreading station:_station /}
 </section>

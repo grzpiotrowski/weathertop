@@ -1,8 +1,8 @@
 <div class="ui equal width stackable grid">
-  <div class="five column equal height row">
+  <div class="five column equal height doubling row">
     <div class="column">
       <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
-        <div class="ui two column stackable grid">
+        <div class="ui two column grid">
           <div class="column" style="padding-top: 2em;">
             <h3>${_station.name}</h3>
             <div class="ui list">
@@ -10,31 +10,36 @@
               <div class="item">Lng: ${_station.longitude.round(3)}</div>
             </div>
           </div>
-          <div class="large screen only column">
+          <div class="column">
+            <a href="https://www.google.com/maps/@${_station.latitude},${_station.longitude},15z" target="_blank">
             <i class="purple huge map marker icon"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
+    #{if _station.readings.size() > 0}
     <div class="column">
       <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
-        <div class="ui two column stackable grid">
+        <div class="ui two column grid">
           <div class="column" style="padding-top: 2em;">
             <h3>Weather</h3>
             <div class="ui list">
               <div class="item">${_station.getLatestReading()?.getWeatherName()}</div>
             </div>
           </div>
-          <div class="large screen only column">
-            <i class="red huge ${_station.getLastReading()?.getWeatherIcon()} icon"></i>
+          <div class="column">
+            <div class="ui right aligned container">
+              <i class="red huge ${_station.getLastReading()?.getWeatherIcon()} icon"></i>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="column">
       <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
-        <div class="ui two column stackable grid">
-          <div class="column" style="padding-top: 2em;">
+        <div class="ui two column grid">
+          <div class="column" style="padding-top: 2em; padding-right: 0em;">
             <h3>Temp</h3>
             <div class="ui list">
               <div class="item">${_station.getLatestReading()?.temperature} &#176;C</div>
@@ -46,15 +51,19 @@
           <div class="column">
             <div class="ui grid">
               <div class="row">
-                <i class="blue huge temperature low icon"></i>
+                <div class="ui right aligned container">
+                  <i class="blue huge temperature low icon"></i>
+                </div>
               </div>
               <div class="row">
-                #{if _station.getTemperatureTrend() == 1}
-                  <i class="big blue long arrow alternate up icon"></i>
-                #{/if}
-                #{elseif _station.getTemperatureTrend() == -1}
-                  <i class="big blue long arrow alternate down icon"></i>
-                #{/elseif}
+                <div class="ui right aligned container">
+                  #{if _station.getTemperatureTrend() == 1}
+                    <i class="big blue long arrow alternate up icon"></i>
+                  #{/if}
+                  #{elseif _station.getTemperatureTrend() == -1}
+                    <i class="big blue long arrow alternate down icon"></i>
+                  #{/elseif}
+                </div>
               </div>
             </div>
           </div>
@@ -63,8 +72,8 @@
     </div>
     <div class="column">
       <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
-        <div class="ui two column stackable grid">
-          <div class="column" style="padding-top: 2em;">
+        <div class="ui two column grid">
+          <div class="ten wide column" style="padding-top: 2em; padding-right: 0em;">
             <h3>Pressure</h3>
             <div class="ui list">
               <div class="item">${_station.getLatestReading()?.pressure} hPa</div>
@@ -72,18 +81,22 @@
               <div class="item">Min: ${_station.getMinPressureReading()?.pressure} hPa</div>
             </div>
           </div>
-          <div class="large screen only column">
+          <div class="six wide column">
             <div class="ui grid">
               <div class="row">
-                <i class="orange huge weight icon"></i>
+                <div class="ui right aligned container">
+                  <i class="orange huge compress arrows alternate icon"></i>
+                </div>
               </div>
               <div class="row">
-                #{if _station.getPressureTrend() == 1}
-                <i class="big orange long arrow alternate up icon"></i>
-                #{/if}
-                #{elseif _station.getPressureTrend() == -1}
-                <i class="big orange long arrow alternate down icon"></i>
-                #{/elseif}
+                <div class="ui right aligned container">
+                  #{if _station.getPressureTrend() == 1}
+                  <i class="big orange long arrow alternate up icon"></i>
+                  #{/if}
+                  #{elseif _station.getPressureTrend() == -1}
+                  <i class="big orange long arrow alternate down icon"></i>
+                  #{/elseif}
+                </div>
               </div>
             </div>
           </div>
@@ -92,8 +105,8 @@
     </div>
     <div class="column">
       <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
-        <div class="ui two column stackable grid">
-          <div class="ten wide column" style="padding-top: 2em;">
+        <div class="ui two column grid">
+          <div class="ten wide column" style="padding-top: 2em; padding-right: 0em;">
             <h3>Wind</h3>
             <div class="ui list">
               <div class="item">${_station.getLatestReading()?.getWindBeaufort()} bft</div>
@@ -103,23 +116,36 @@
               <div class="item">Min: ${_station.getMinWindReading()?.windSpeed} km/h</div>
             </div>
           </div>
-          <div class="six wide large screen only column" style="padding-left: 0em; padding-right: 0em;">
+          <div class="six wide column">
             <div class="ui grid">
               <div class="row">
-                <i class="green huge wind icon"></i>
+                <div class="ui right aligned container">
+                  <i class="green huge wind icon"></i>
+                </div>
               </div>
               <div class="row">
-                #{if _station.getWindSpeedTrend() == 1}
-                <i class="big green long arrow alternate up icon"></i>
-                #{/if}
-                #{elseif _station.getWindSpeedTrend() == -1}
-                <i class="big green long arrow alternate down icon"></i>
-                #{/elseif}
+                <div class="ui right aligned container">
+                  #{if _station.getWindSpeedTrend() == 1}
+                  <i class="big green long arrow alternate up icon"></i>
+                  #{/if}
+                  #{elseif _station.getWindSpeedTrend() == -1}
+                  <i class="big green long arrow alternate down icon"></i>
+                  #{/elseif}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    #{/if}
+    #{else}
+    <div class="bottom aligned column">
+      <p>There are no readings yet.</p>
+    </div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    #{/else}
   </div>
 </div>

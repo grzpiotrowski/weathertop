@@ -3,16 +3,25 @@
 
 #{menu id:"accountsettings"/}
 
-<section class="ui center aligned middle aligned segment">
-  <form class="ui form" action="/accounts/updatememberdetails" method="POST">
-    <div class="field">
-      <label>First Name</label>
-      <input placeholder="First Name" type="text" name="firstname" value="${firstname}">
+<section class="ui segment">
+  <h2 class="ui header">Account Settings</h2>
+  <div class="ui two column grid">
+    <div class="sixteen wide column eight wide computer column">
+      <form class="ui segment form" action="/accounts/updatememberdetails" method="POST">
+        <h3 class="ui header">Personal details</h3>
+          <div class="field">
+            <label class="ui left aligned">First Name</label>
+            <input placeholder="First Name" type="text" name="firstname" value="${firstname}">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" type="text" name="lastname" value="${lastname}">
+          </div>
+        <button class="ui blue submit button">Update details</button>
+      </form>
     </div>
-    <div class="field">
-      <label>Last Name</label>
-      <input placeholder="Last Name" type="text" name="lastname" value="${lastname}">
+    <div class="ui eight wide computer only column">
+      <img class="ui large rounded floated right image" src="/public/images/settings.jpg">
     </div>
-    <button class="ui blue submit button">Update details</button>
-  </form>
+  </div>
 </section>

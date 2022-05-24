@@ -17,10 +17,10 @@
       <td>
         ${reading.date}
       </td>
-      <td>
+      <td data-tooltip="${reading.getWeatherName()}">
         ${reading.code}
       </td>
-      <td>
+      <td data-tooltip="${reading.getTemperatureFahrenheit()} &#176;F">
         ${reading.temperature}
       </td>
       <td>
@@ -33,7 +33,11 @@
         ${reading.windDirection}
       </td>
       <td>
-        <a href="/stations/${_station.id}/deletereading/${reading.id}" class="ui tiny red button">Delete Reading</a>
+        <a href="/stations/${_station.id}/deletereading/${reading.id}"
+          <button class="medium red ui icon button" data-tooltip="Delete Reading">
+            <i class="trash alternate icon"></i>
+          </button>
+        </a>
       </td>
     </tr>
     #{/list}

@@ -3,20 +3,18 @@
 
 #{menu id:"dashboard", activepagetitle:"WeatherTop Stations"/}
 <section class="ui segment">
-  <h1 class="ui header">
-    Weather stations
-  </h1>
+  <h1 class="ui header"> ${memberFirstName}'s stations </h1>
   #{list items:stations, as:'station'}
-    <section class="ui segment">
+    <section class="ui segment" style="background: #AD9A70; border-radius: 20px;">
       #{stationsummary station:station /}
       <div class="ui divider"></div>
       <a href="/stations/${station.id}" class="ui folder open icon">
-        <button class="ui icon button">
+        <button class="circular medium black ui icon button" data-tooltip="Open Station">
           <i class="folder open icon"></i>
         </button>
       </a>
       <a href="/dashboard/deletestation/${station.id}">
-        <button class="ui icon button">
+        <button class="circular medium red ui icon button" data-tooltip="Delete Station">
           <i class="trash alternate icon"></i>
         </button>
       </a>
