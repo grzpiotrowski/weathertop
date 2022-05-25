@@ -1,9 +1,14 @@
 #{extends 'main.html' /}
-#{set title:'Dashboard' /}
+#{set title:'Dashboard - WeatherTop' /}
 
 #{menu id:"dashboard", activepagetitle:"WeatherTop Stations"/}
 <section class="ui segment">
-  <h1 class="ui header"> ${memberFirstName}'s stations </h1>
+  #{if memberFirstName == ""}
+    <h2 class="ui header"> Your stations </h2>
+  #{/if}
+  #{else}
+    <h2 class="ui header"> ${memberFirstName}'s stations </h2>
+  #{/else}
   #{list items:stations, as:'station'}
     <section class="ui segment" style="background: #AD9A70; border-radius: 20px;">
       #{stationsummary station:station /}

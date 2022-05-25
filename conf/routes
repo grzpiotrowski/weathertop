@@ -10,7 +10,9 @@ POST    /register                                   Accounts.register
 POST    /authenticate                               Accounts.authenticate
 GET     /logout                                     Accounts.logout
 GET     /accountsettings                            Accounts.settings
+GET     /securitysettings                           Accounts.authenticationSettings
 POST    /accounts/updatememberdetails               Accounts.changeMemberDetails
+POST    /accounts/updatememberpassword              Accounts.changeMemberPassword
 GET     /dashboard                                  Dashboard.index
 GET     /about                                      About.index
 GET     /stations/{id}                              StationCtrl.index

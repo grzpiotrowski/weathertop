@@ -23,6 +23,12 @@ public class Accounts extends Controller
     render("accountsettings.html", firstname, lastname);
   }
 
+  public static void authenticationSettings()
+  {
+    String email = getLoggedInMember().email;
+    render("securitysettings.html", email);
+  }
+
   /**
    * Creates a new member in the database
    * @param firstName First Name
@@ -109,12 +115,47 @@ public class Accounts extends Controller
    */
   public static void changeMemberDetails(String firstname, String lastname) {
     Member member = getLoggedInMember();
+    String message = "";
     if (member != null) {
       member.firstName = firstname;
       member.lastName = lastname;
       member.save();
-      redirect("/accountsettings");
+      message = "Personal details updated!";
     }
+    render("accountsettings.html", message, firstname, lastname);
+  }
+
+  /**
+   * Changes Member's password in the database
+   * @param oldpassword Member's old password
+   * @param newpassword Member's new password
+   * @param newpasswordconfirm Member's new password confirmation
+   */
+  public static void changeMemberPassword(String oldpassword, String newpassword, String newpasswordconfirm) {
+    Member member = getLoggedInMember();
+    Logger.info("Attempting password change for user: " + member.email);
+    HashSet<String> errormessages = new HashSet<>();
+    String message = "";
+
+    boolean errorOccured = false;
+    if (newpassword.equals(newpasswordconfirm)) {
+      if (member.checkPassword(oldpassword)) {
+        member.password = newpassword;
+        member.save();
+      } else {
+        errorOccured = true;
+        errormessages.add("Incorrect old password!");
+      }
+    } else {
+      errorOccured = true;
+      errormessages.add("New password does not match!");
+    }
+
+    if (!errorOccured) {
+      message = "Password changed successfully!";
+    }
+
+    render("securitysettings.html", errormessages, message);
   }
 
 }
