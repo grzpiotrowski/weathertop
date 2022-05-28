@@ -7,7 +7,7 @@ Allows members to add their own weather stations and readings with values of:
 * Wind direction
 * Weather code (type of weather)
 
-Project created using Java with Play framework.
+Project created using Java with Play framework and Fomantic-UI.
 
 ## Main features
 * Members registration/login
@@ -16,6 +16,17 @@ Project created using Java with Play framework.
 * Weather dashboard, min/max reading, trends
 * Member can change personal details and password
 * Forms validation
+
+## Requirements and installation
+Project is using Java 11 and Play framework v1.6.0.
+You can download play 1.6.0 installation files here:
+https://www.playframework.com/releases
+
+Clone the repository and run locally using play:
+
+    git clone https://github.com/grzpiotrowski/weathertop
+    cd weathertop
+    play run
 
 ## References
 * Loading YAML in Play Framework and how dates are handled:
