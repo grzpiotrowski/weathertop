@@ -19,133 +19,133 @@
       </div>
     </div>
     #{if _station.readings.size() > 0}
-    <div class="column">
-      <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
-        <div class="ui two column grid">
-          <div class="column" style="padding-top: 2em;">
-            <h3>Weather</h3>
-            <div class="ui list">
-              <div class="item">${_station.getLatestReading()?.getWeatherName()}</div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="ui right aligned container">
-              <i class="red huge ${_station.getLastReading()?.getWeatherIcon()} icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
-        <div class="ui two column grid">
-          <div class="column" style="padding-top: 2em; padding-right: 0em;">
-            <h3>Temp</h3>
-            <div class="ui list">
-              <div class="item">${_station.getLatestReading()?.temperature} &#176;C</div>
-              <div class="item">${_station.getLatestReading()?.getTemperatureFahrenheit()} &#176;F</div>
-              <div class="item">Max: ${_station.getMaxTemperatureReading()?.temperature} &#176;C</div>
-              <div class="item">Min: ${_station.getMinTemperatureReading()?.temperature} &#176;C</div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="ui grid">
-              <div class="row">
-                <div class="ui right aligned container">
-                  <i class="blue huge temperature low icon"></i>
-                </div>
+      <div class="column">
+        <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
+          <div class="ui two column grid">
+            <div class="column" style="padding-top: 2em;">
+              <h3>Weather</h3>
+              <div class="ui list">
+                <div class="item">${_station.getLatestReading()?.getWeatherName()}</div>
               </div>
-              <div class="row">
-                <div class="ui right aligned container">
-                  #{if _station.getTemperatureTrend() == 1}
-                    <i class="big blue long arrow alternate up icon"></i>
-                  #{/if}
-                  #{elseif _station.getTemperatureTrend() == -1}
-                    <i class="big blue long arrow alternate down icon"></i>
-                  #{/elseif}
-                </div>
+            </div>
+            <div class="column">
+              <div class="ui right aligned container">
+                <i class="red huge ${_station.getLatestReading()?.getWeatherIcon()} icon"></i>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="column">
-      <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
-        <div class="ui two column grid">
-          <div class="ten wide column" style="padding-top: 2em; padding-right: 0em;">
-            <h3>Pressure</h3>
-            <div class="ui list">
-              <div class="item">${_station.getLatestReading()?.pressure} hPa</div>
-              <div class="item">Max: ${_station.getMaxPressureReading()?.pressure} hPa</div>
-              <div class="item">Min: ${_station.getMinPressureReading()?.pressure} hPa</div>
-            </div>
-          </div>
-          <div class="six wide column">
-            <div class="ui grid">
-              <div class="row">
-                <div class="ui right aligned container">
-                  <i class="orange huge compress arrows alternate icon"></i>
-                </div>
+      <div class="column">
+        <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
+          <div class="ui two column grid">
+            <div class="column" style="padding-top: 2em; padding-right: 0em;">
+              <h3>Temp</h3>
+              <div class="ui list">
+                <div class="item">${_station.getLatestReading()?.temperature} &#176;C</div>
+                <div class="item">${_station.getLatestReading()?.getTemperatureFahrenheit()} &#176;F</div>
+                <div class="item">Max: ${_station.getMaxTemperatureReading()?.temperature} &#176;C</div>
+                <div class="item">Min: ${_station.getMinTemperatureReading()?.temperature} &#176;C</div>
               </div>
-              <div class="row">
-                <div class="ui right aligned container">
-                  #{if _station.getPressureTrend() == 1}
-                  <i class="big orange long arrow alternate up icon"></i>
-                  #{/if}
-                  #{elseif _station.getPressureTrend() == -1}
-                  <i class="big orange long arrow alternate down icon"></i>
-                  #{/elseif}
+            </div>
+            <div class="column">
+              <div class="ui grid">
+                <div class="row">
+                  <div class="ui right aligned container">
+                    <i class="blue huge temperature low icon"></i>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="ui right aligned container">
+                    #{if _station.getTemperatureTrend() == 1}
+                      <i class="big blue long arrow alternate up icon"></i>
+                    #{/if}
+                    #{elseif _station.getTemperatureTrend() == -1}
+                      <i class="big blue long arrow alternate down icon"></i>
+                    #{/elseif}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="column">
-      <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
-        <div class="ui two column grid">
-          <div class="ten wide column" style="padding-top: 2em; padding-right: 0em;">
-            <h3>Wind</h3>
-            <div class="ui list">
-              <div class="item">${_station.getLatestReading()?.getWindBeaufort()} bft</div>
-              <div class="item">${_station.getLatestReading()?.getWindCompassDir()}</div>
-              <div class="item">Feels like ${_station.getLatestReading()?.getWindChill()?.round(1)} &#176;C</div>
-              <div class="item">Max: ${_station.getMaxWindReading()?.windSpeed} km/h</div>
-              <div class="item">Min: ${_station.getMinWindReading()?.windSpeed} km/h</div>
-            </div>
-          </div>
-          <div class="six wide column">
-            <div class="ui grid">
-              <div class="row">
-                <div class="ui right aligned container">
-                  <i class="green huge wind icon"></i>
-                </div>
+      <div class="column">
+        <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
+          <div class="ui two column grid">
+            <div class="ten wide column" style="padding-top: 2em; padding-right: 0em;">
+              <h3>Pressure</h3>
+              <div class="ui list">
+                <div class="item">${_station.getLatestReading()?.pressure} hPa</div>
+                <div class="item">Max: ${_station.getMaxPressureReading()?.pressure} hPa</div>
+                <div class="item">Min: ${_station.getMinPressureReading()?.pressure} hPa</div>
               </div>
-              <div class="row">
-                <div class="ui right aligned container">
-                  #{if _station.getWindSpeedTrend() == 1}
-                  <i class="big green long arrow alternate up icon"></i>
-                  #{/if}
-                  #{elseif _station.getWindSpeedTrend() == -1}
-                  <i class="big green long arrow alternate down icon"></i>
-                  #{/elseif}
+            </div>
+            <div class="six wide column">
+              <div class="ui grid">
+                <div class="row">
+                  <div class="ui right aligned container">
+                    <i class="orange huge compress arrows alternate icon"></i>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="ui right aligned container">
+                    #{if _station.getPressureTrend() == 1}
+                    <i class="big orange long arrow alternate up icon"></i>
+                    #{/if}
+                    #{elseif _station.getPressureTrend() == -1}
+                    <i class="big orange long arrow alternate down icon"></i>
+                    #{/elseif}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="column">
+        <div class="ui inverted segment" style="height:100%; border-radius: 20px;">
+          <div class="ui two column grid">
+            <div class="ten wide column" style="padding-top: 2em; padding-right: 0em;">
+              <h3>Wind</h3>
+              <div class="ui list">
+                <div class="item">${_station.getLatestReading()?.getWindBeaufort()} bft</div>
+                <div class="item">${_station.getLatestReading()?.getWindCompassDir()}</div>
+                <div class="item">Feels like ${_station.getLatestReading()?.getWindChill()?.round(1)} &#176;C</div>
+                <div class="item">Max: ${_station.getMaxWindReading()?.windSpeed} km/h</div>
+                <div class="item">Min: ${_station.getMinWindReading()?.windSpeed} km/h</div>
+              </div>
+            </div>
+            <div class="six wide column">
+              <div class="ui grid">
+                <div class="row">
+                  <div class="ui right aligned container">
+                    <i class="green huge wind icon"></i>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="ui right aligned container">
+                    #{if _station.getWindSpeedTrend() == 1}
+                    <i class="big green long arrow alternate up icon"></i>
+                    #{/if}
+                    #{elseif _station.getWindSpeedTrend() == -1}
+                    <i class="big green long arrow alternate down icon"></i>
+                    #{/elseif}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     #{/if}
     #{else}
-    <div class="bottom aligned column">
-      <p>There are no readings yet.</p>
-    </div>
-    <div class="column"></div>
-    <div class="column"></div>
-    <div class="column"></div>
+      <div class="bottom aligned column">
+        <p>There are no readings yet.</p>
+      </div>
+      <div class="column"></div>
+      <div class="column"></div>
+      <div class="column"></div>
     #{/else}
   </div>
 </div>

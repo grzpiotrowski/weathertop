@@ -35,6 +35,7 @@ public class Conversions {
 
   /**
    * Returns fomantic-ui icon name for a given weather code
+   *
    * @param code Weather code
    * @return fomantic-ui icon name
    */

@@ -3,7 +3,6 @@ package controllers;
 import models.Station;
 import models.Reading;
 import play.Logger;
-import play.Play;
 import play.mvc.Controller;
 
 import java.util.Date;
@@ -37,7 +36,8 @@ public class StationCtrl extends Controller {
 
   /**
    * Removes a reading from the station
-   * @param id Station's id
+   *
+   * @param id        Station's id
    * @param readingid Reading's id
    */
   public static void deleteReading(Long id, Long readingid) {

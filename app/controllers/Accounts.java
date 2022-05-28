@@ -4,40 +4,37 @@ import models.Member;
 import play.Logger;
 import play.mvc.Controller;
 
-import java.util.HashMap;
 import java.util.HashSet;
 
-public class Accounts extends Controller
-{
-  public static void signup() { render("signup.html"); }
+public class Accounts extends Controller {
+  public static void signup() {
+    render("signup.html");
+  }
 
-  public static void login()
-  {
+  public static void login() {
     render("login.html");
   }
 
-  public static void settings()
-  {
+  public static void settings() {
     String firstname = getLoggedInMember().firstName;
     String lastname = getLoggedInMember().lastName;
     render("accountsettings.html", firstname, lastname);
   }
 
-  public static void authenticationSettings()
-  {
+  public static void authenticationSettings() {
     String email = getLoggedInMember().email;
     render("securitysettings.html", email);
   }
 
   /**
    * Creates a new member in the database
+   *
    * @param firstName First Name
-   * @param lastName Last Name
-   * @param email Email
-   * @param password Password
+   * @param lastName  Last Name
+   * @param email     Email
+   * @param password  Password
    */
-  public static void register(String firstName, String lastName, String email, String password)
-  {
+  public static void register(String firstName, String lastName, String email, String password) {
     HashSet<String> errormessages = new HashSet<>();
     if (Member.isEmailExisting(email)) {
       Logger.info("Email already taken: " + email);
@@ -68,7 +65,8 @@ public class Accounts extends Controller
 
   /**
    * Authenticates member login
-   * @param email Email
+   *
+   * @param email    Email
    * @param password Password
    */
   public static void authenticate(String email, String password) {
@@ -86,18 +84,17 @@ public class Accounts extends Controller
     }
   }
 
-  public static void logout()
-  {
+  public static void logout() {
     session.clear();
     redirect("/");
   }
 
   /**
    * Returns currently logged in Member
+   *
    * @return Member logged in current session
    */
-  public static Member getLoggedInMember()
-  {
+  public static Member getLoggedInMember() {
     Member member = null;
     if (session.contains("logged_in_Memberid")) {
       String memberId = session.get("logged_in_Memberid");
@@ -110,8 +107,9 @@ public class Accounts extends Controller
 
   /**
    * Changes Member's details in the database
+   *
    * @param firstname First Name
-   * @param lastname Last Name
+   * @param lastname  Last Name
    */
   public static void changeMemberDetails(String firstname, String lastname) {
     Member member = getLoggedInMember();
@@ -127,8 +125,9 @@ public class Accounts extends Controller
 
   /**
    * Changes Member's password in the database
-   * @param oldpassword Member's old password
-   * @param newpassword Member's new password
+   *
+   * @param oldpassword        Member's old password
+   * @param newpassword        Member's new password
    * @param newpasswordconfirm Member's new password confirmation
    */
   public static void changeMemberPassword(String oldpassword, String newpassword, String newpasswordconfirm) {

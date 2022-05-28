@@ -3,11 +3,9 @@ package models;
 import javax.persistence.Entity;
 
 import play.db.jpa.Model;
-
 import utils.Conversions;
 import utils.WeatherAnalytics;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -30,6 +28,7 @@ public class Reading extends Model {
 
   /**
    * Returns temperature value in Fahrenheit degrees.
+   *
    * @return Temperature value in Fahrenheit degrees.
    */
   public double getTemperatureFahrenheit() {
@@ -38,13 +37,16 @@ public class Reading extends Model {
 
   /**
    * Returns Reading's weather as a String
+   *
    * @return Weather String
    */
   public String getWeatherName() {
     return Conversions.weatherCodeToString(code);
   }
 
-  public String getWeatherIcon() { return Conversions.weatherCodeIcon(code); }
+  public String getWeatherIcon() {
+    return Conversions.weatherCodeIcon(code);
+  }
 
   public int getWindBeaufort() {
     return Conversions.kmhToBeaufort(windSpeed);

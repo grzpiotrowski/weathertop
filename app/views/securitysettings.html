@@ -29,23 +29,23 @@
             </div>
             <button class="ui blue submit button">Update password</button>
             #{if !errormessages?.isEmpty() && errormessages != null}
-            <div class="ui negative message">
-              <div class="header">
-                Password change failed!
+              <div class="ui negative message">
+                <div class="header">
+                  Password change failed!
+                </div>
+                <ul class="list">
+                  #{list items:errormessages, as:'errormessage'}
+                  <li>${errormessage}</li>
+                  #{/list}
+                </ul>
               </div>
-              <ul class="list">
-                #{list items:errormessages, as:'errormessage'}
-                <li>${errormessage}</li>
-                #{/list}
-              </ul>
-            </div>
             #{/if}
             #{if message?.length() > 0 && message != null}
-            <div class="ui positive message">
-              <div class="header">
-                ${message}
+              <div class="ui positive message">
+                <div class="header">
+                  ${message}
+                </div>
               </div>
-            </div>
             #{/if}
           </form>
         </div>

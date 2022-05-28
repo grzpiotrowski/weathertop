@@ -6,6 +6,10 @@
     </profile>
     <version value="1.0" />
   </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/documentation" />
+    <option name="OPTION_SCOPE" value="public" />
+  </component>
   <component name="ProjectCodeStyleConfiguration">
     <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default" />
   </component>

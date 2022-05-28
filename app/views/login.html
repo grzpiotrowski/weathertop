@@ -14,16 +14,16 @@
       </div>
       <button class="ui blue submit button">Login</button>
       #{if !errormessages?.isEmpty() && errormessages != null}
-      <div class="ui negative message">
-        <div class="header">
-          Log in failed. Please try again.
+        <div class="ui negative message">
+          <div class="header">
+            Log in failed. Please try again.
+          </div>
+          <ul class="list">
+            #{list items:errormessages, as:'errormessage'}
+            <li>${errormessage}</li>
+            #{/list}
+          </ul>
         </div>
-        <ul class="list">
-          #{list items:errormessages, as:'errormessage'}
-          <li>${errormessage}</li>
-          #{/list}
-        </ul>
-      </div>
       #{/if}
     </form>
   </div>

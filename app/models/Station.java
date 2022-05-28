@@ -28,27 +28,15 @@ public class Station extends Model {
   }
 
   /**
-   * Returns the most recently added reading for the station
-   * Note: Not necessarily the newest by date
-   * @return The most recently added weather reading for the station
-   */
-  public Reading getLastReading() {
-    Reading lastReading = null;
-    if (readings.size() > 0) {
-      lastReading = readings.get(readings.size() - 1);
-    }
-    return lastReading;
-  }
-
-  /**
    * Returns a reading which is the most recent by date for the station
+   *
    * @return The latest weather reading for the station
    */
   public Reading getLatestReading() {
     Reading latestReading = null;
     if (readings.size() > 0) {
       latestReading = readings.get(0);
-      for (Reading reading:readings) {
+      for (Reading reading : readings) {
         if (reading.date.after(latestReading.date)) {
           latestReading = reading;
         }
@@ -69,7 +57,9 @@ public class Station extends Model {
     return WeatherAnalytics.getMinPressureReading(readings);
   }
 
-  public Reading getMaxPressureReading() { return WeatherAnalytics.getMaxPressureReading(readings); }
+  public Reading getMaxPressureReading() {
+    return WeatherAnalytics.getMaxPressureReading(readings);
+  }
 
   public Reading getMinWindReading() {
     return WeatherAnalytics.getMinWindReading(readings);
@@ -79,9 +69,15 @@ public class Station extends Model {
     return WeatherAnalytics.getMaxWindReading(readings);
   }
 
-  public int getTemperatureTrend() { return WeatherAnalytics.getTemperatureTrend(readings); }
+  public int getTemperatureTrend() {
+    return WeatherAnalytics.getTemperatureTrend(readings);
+  }
 
-  public int getPressureTrend() { return WeatherAnalytics.getPressureTrend(readings); }
+  public int getPressureTrend() {
+    return WeatherAnalytics.getPressureTrend(readings);
+  }
 
-  public int getWindSpeedTrend() { return WeatherAnalytics.getWindSpeedTrend(readings); }
+  public int getWindSpeedTrend() {
+    return WeatherAnalytics.getWindSpeedTrend(readings);
+  }
 }

@@ -15,15 +15,15 @@
   </div>
   <button class="ui green submit button">Add Station</button>
   #{if !_errormessages?.isEmpty() && _errormessages != null}
-  <div class="ui negative message">
-    <div class="header">
-      Unable to create a new station
+    <div class="ui negative message">
+      <div class="header">
+        Unable to create a new station
+      </div>
+      <ul class="list">
+        #{list items:_errormessages, as:'errormessage'}
+        <li>${errormessage}</li>
+        #{/list}
+      </ul>
     </div>
-    <ul class="list">
-      #{list items:_errormessages, as:'errormessage'}
-      <li>${errormessage}</li>
-      #{/list}
-    </ul>
-  </div>
   #{/if}
 </form>

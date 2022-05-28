@@ -25,6 +25,7 @@ public class WeatherAnalytics {
 
   /**
    * Returns a reading with the maximum temperature
+   *
    * @param readings List of Readings
    * @return Reading with max temperature
    */
@@ -43,6 +44,7 @@ public class WeatherAnalytics {
 
   /**
    * Returns a reading with the minimum temperature
+   *
    * @param readings List of Readings
    * @return Reading with min temperature
    */
@@ -61,6 +63,7 @@ public class WeatherAnalytics {
 
   /**
    * Returns a reading with the maximum wind speed
+   *
    * @param readings List of Readings
    * @return Reading with max wind speed
    */
@@ -79,6 +82,7 @@ public class WeatherAnalytics {
 
   /**
    * Returns a reading with the minimum wind speed
+   *
    * @param readings List of Readings
    * @return Reading with min wind speed
    */
@@ -97,6 +101,7 @@ public class WeatherAnalytics {
 
   /**
    * Returns a reading with the maximum pressure
+   *
    * @param readings List of Readings
    * @return Reading with max pressure
    */
@@ -115,6 +120,7 @@ public class WeatherAnalytics {
 
   /**
    * Returns a reading with the minimum pressure
+   *
    * @param readings List of Readings
    * @return Reading with min pressure
    */
@@ -133,6 +139,7 @@ public class WeatherAnalytics {
 
   /**
    * Returns an int representing the temperature change trend on last 3 readings.
+   *
    * @param readings List of Readings
    * @return integer representing the trend: -1 downwards trend, 1 upwards trend, 0 no significant change
    */
@@ -140,7 +147,7 @@ public class WeatherAnalytics {
     int trend = 0;
     if (readings.size() > 2) {
       if ((readings.get(readings.size() - 1).temperature - readings.get(readings.size() - 2).temperature) > 0
-      && (readings.get(readings.size() - 2).temperature - readings.get(readings.size() - 3).temperature) > 0) {
+          && (readings.get(readings.size() - 2).temperature - readings.get(readings.size() - 3).temperature) > 0) {
         trend = 1;
       } else if ((readings.get(readings.size() - 1).temperature - readings.get(readings.size() - 2).temperature) < 0
           && (readings.get(readings.size() - 2).temperature - readings.get(readings.size() - 3).temperature) < 0) {
@@ -154,6 +161,7 @@ public class WeatherAnalytics {
 
   /**
    * Returns an int representing the pressure change trend on last 3 readings.
+   *
    * @param readings List of Readings
    * @return integer representing the trend: -1 downwards trend, 1 upwards trend, 0 no significant change
    */
@@ -175,6 +183,7 @@ public class WeatherAnalytics {
 
   /**
    * Returns an int representing the wind speed change trend on last 3 readings.
+   *
    * @param readings List of Readings
    * @return integer representing the trend: -1 downwards trend, 1 upwards trend, 0 no significant change
    */

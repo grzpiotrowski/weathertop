@@ -10,36 +10,35 @@
       <th></th>
     </tr>
   </thead>
-
   <tbody>
     #{list items:_station.readings, as:'reading'}
-    <tr>
-      <td>
-        ${reading.date}
-      </td>
-      <td data-tooltip="${reading.getWeatherName()}">
-        ${reading.code}
-      </td>
-      <td data-tooltip="${reading.getTemperatureFahrenheit()} &#176;F">
-        ${reading.temperature}
-      </td>
-      <td>
-        ${reading.pressure}
-      </td>
-      <td>
-        ${reading.windSpeed}
-      </td>
-      <td>
-        ${reading.windDirection}
-      </td>
-      <td>
-        <a href="/stations/${_station.id}/deletereading/${reading.id}"
-          <button class="medium red ui icon button" data-tooltip="Delete Reading">
-            <i class="trash alternate icon"></i>
-          </button>
-        </a>
-      </td>
-    </tr>
+      <tr>
+        <td>
+          ${reading.date.format('YYYY-MM-dd HH:mm:ss')}
+        </td>
+        <td data-tooltip="${reading.getWeatherName()}">
+          ${reading.code}
+        </td>
+        <td data-tooltip="${reading.getTemperatureFahrenheit()} &#176;F">
+          ${reading.temperature}
+        </td>
+        <td>
+          ${reading.pressure}
+        </td>
+        <td>
+          ${reading.windSpeed}
+        </td>
+        <td>
+          ${reading.windDirection}
+        </td>
+        <td>
+          <a href="/stations/${_station.id}/deletereading/${reading.id}"
+            <button class="medium red ui icon button" data-tooltip="Delete Reading">
+              <i class="trash alternate icon"></i>
+            </button>
+          </a>
+        </td>
+      </tr>
     #{/list}
   </tbody>
 </table>
